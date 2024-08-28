@@ -1,0 +1,37 @@
+name: Update Birthday Countdown
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  
+  workflow_dispatch: 
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository content
+        uses: actions/checkout@v2
+
+      - name: Calculate days until birthday
+        run: |
+          BIRTHDAY="2004-06-08"  
+          TODAY=$(date +%Y-%m-%d)
+          NEXT_BIRTHDAY=$(date -d "$BIRTHDAY" +%Y)
+          
+          if [ "$TODAY" \> "$BIRTHDAY" ]; then
+            NEXT_BIRTHDAY=$(date -d "$BIRTHDAY +1 year" +%Y-%m-%d)
+          else
+            NEXT_BIRTHDAY=$(date -d "$BIRTHDAY" +%Y-%m-%d)
+          fi
+          
+          DAYS_LEFT=$(( ( $(date -d "$NEXT_BIRTHDAY" +%s) - $(date -d "$TODAY" +%s) )/(60*60*24) ))
+
+          sed -i "/<!-- ANNI_COUNTDOWN_START -->/,/<!-- ANNI_COUNTDOWN_END -->/c\<!-- ANNI_COUNTDOWN_START -->\n## My birthday is in $DAYS_LEFT days 🎉\n<!-- ANNI_COUNTDOWN_END -->" README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git add README.md
+          git commit -m "update: birthday countdown"
+          git push
