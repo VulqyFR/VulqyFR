@@ -2,7 +2,7 @@ name: Update Birthday Countdown
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # Runs daily
   workflow_dispatch:
 
 jobs:
@@ -25,7 +25,8 @@ jobs:
 
           DAYS_LEFT=$(( ( $(date -d "$NEXT_BIRTHDAY" +%s) - $(date -d "$TODAY" +%s) )/(60*60*24) ))
 
-          sed -i "/<!-- ANNI_COUNTDOWN_START -->/,/<!-- ANNI_COUNTDOWN_END -->/c\<!-- ANNI_COUNTDOWN_START -->\nMy birthday is in $DAYS_LEFT days 🎉\n<!-- ANNI_COUNTDOWN_END -->" README.md
+          # Updating the README file with the countdown
+          sed -i '/<!-- ANNI_COUNTDOWN_START -->/,/<!-- ANNI_COUNTDOWN_END -->/c\<!-- ANNI_COUNTDOWN_START -->\nMy birthday is in '"$DAYS_LEFT"' days 🎉\n<!-- ANNI_COUNTDOWN_END -->' README.md
 
       - name: Commit changes
         run: |
@@ -36,7 +37,7 @@ jobs:
 
       - name: Push changes
         env:
-          TOKEN: ${{ secrets.GH_TOKEN }} 
+          TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/VulqyFR/VulqyFR.git
           git push
