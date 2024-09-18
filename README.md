@@ -39,6 +39,3 @@
 
 ![Last Update](https://img.shields.io/github/last-commit/VulqyFR/VulqyFR?style=flat&color=blue)
 
-<!-- ANNI_COUNTDOWN_START -->
-My birthday is in $DAYS_LEFT days
-<!-- ANNI_COUNTDOWN_END -->
