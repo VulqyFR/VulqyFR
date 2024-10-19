@@ -33,7 +33,7 @@
 ## 📬 Get in Touch
 - Email: chauvel.elvin@gmail.com
 - LinkedIn: [Linkedin](https://www.linkedin.com/in/elvin-chauvel-69800827a/)
-- Twitter: [Twitter](https://x.com/elvinchauvel)
+- Twitter: [Twitter](https://x.com/elvin_chauvel)
 
 ## 🔄 Last Update
 
