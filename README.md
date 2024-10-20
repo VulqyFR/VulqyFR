@@ -1,4 +1,4 @@
-# Hi there! 👋🏼
+# Hi there i'm Elvin Chauvel ! 👋🏼
 
 ### I am currently a student developer and in my third year of study at CESI
 
@@ -34,8 +34,5 @@
 - Email: chauvel.elvin@gmail.com
 - LinkedIn: [Linkedin](https://www.linkedin.com/in/elvin-chauvel-69800827a/)
 - Twitter: [Twitter](https://x.com/elvin_chauvel)
-
-## 🔄 Last Update
-
-![Last Update](https://img.shields.io/github/last-commit/VulqyFR/VulqyFR?style=flat&color=blue)
+- Portfolio: [Portfolio](https://elvin-chauvel.com)
 
